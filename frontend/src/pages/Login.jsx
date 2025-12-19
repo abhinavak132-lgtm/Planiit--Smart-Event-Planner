@@ -30,7 +30,7 @@ function Login({ onLogin }) {
 
     try {
       const endpoint = isRegister ? 'register' : 'login'
-      const response = await axios.post(`http://localhost:5000/api/auth/${endpoint}`, formData)
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/${endpoint}`, formData)
       onLogin(response.data.token)
     } catch (error) {
       setError(error.response?.data?.message || 'Something went wrong')

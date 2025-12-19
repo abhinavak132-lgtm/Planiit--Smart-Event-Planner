@@ -38,7 +38,7 @@ function CreateEvent() {
 
     try {
       const token = localStorage.getItem('token')
-      await axios.post('http://localhost:5000/api/events', formData, {
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/events`, formData, {
         headers: { Authorization: `Bearer ${token}` }
       })
       navigate('/dashboard')

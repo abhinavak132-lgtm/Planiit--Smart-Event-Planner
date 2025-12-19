@@ -11,7 +11,7 @@ function Dashboard() {
   const fetchEvents = async () => {
     try {
       const token = localStorage.getItem('token')
-      const response = await axios.get('http://localhost:5000/api/events', {
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/events`, {
         headers: { Authorization: `Bearer ${token}` }
       })
       setEvents(response.data)
@@ -25,7 +25,7 @@ function Dashboard() {
   const fetchSuggestions = async () => {
     try {
       const token = localStorage.getItem('token')
-      const response = await axios.get('http://localhost:5000/api/events/suggestions', {
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/events/suggestions`, {
         headers: { Authorization: `Bearer ${token}` }
       })
       setSuggestions(response.data)
